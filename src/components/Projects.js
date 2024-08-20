@@ -2,6 +2,9 @@ import { Col, Container, Row, Tab, Nav} from "react-bootstrap";
 import projImg1 from '../assets/images/project-img1.png';
 import projImg2 from '../assets/images/project-img2.png';
 import projImg3 from '../assets/images/project-img3.png';
+import brownlabubu from '../assets/images/brown-labubu.jpg';
+import redlabubu from '../assets/images/redlabubu.jpg';
+import whitelabubu from '../assets/images/white-labubu.jpg';
 import { ProjectCard } from "./ProjectCard";
 import corlorSharp2 from  '../assets/images/color-sharp2.png';
 
@@ -16,7 +19,7 @@ export const Projects = () => {
         {
           title: "Business Startup",
           description: "Design & Development",
-          imgUrl: projImg2,
+          imgUrl: brownlabubu,
         },
         {
           title: "Business Startup",
@@ -26,7 +29,7 @@ export const Projects = () => {
         {
           title: "Business Startup",
           description: "Design & Development",
-          imgUrl: projImg1,
+          imgUrl: whitelabubu,
         },
         {
           title: "Business Startup",
@@ -36,7 +39,7 @@ export const Projects = () => {
         {
           title: "Business Startup",
           description: "Design & Development",
-          imgUrl: projImg3,
+          imgUrl: redlabubu,
         },
       ];
 
