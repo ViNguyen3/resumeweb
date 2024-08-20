@@ -1,21 +1,29 @@
-import { Alert } from "react-bootstrap";
+import { Row, Col, Container, Alert } from "react-bootstrap"
 import { useState, useEffect} from "react";
 
 export const Newsletter = ({onValidated, status, message}) => {
     
     const [email,setEmail] = useState('');
+    
+
+    //in case it fail to send the program wont clear the field yet but let use try again
+    useEffect(() => {
+        //this useEffect trigger every time "status" var change and it will check for success case which then will clear the field 
+        if (status === 'success') clearFields();
+    }, [status])
+
     //validating the email address
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         e.prevenDetail();
         email &&
-        email.indexOf("@") > -1
+        email.indexOf("@") > -1 &&
         onValidated({
             EMAIL:email
         })
     }
 
     const clearFields = () => {
-
+        setEmail('');
     }
 
     return(

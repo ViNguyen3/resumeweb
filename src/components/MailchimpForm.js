@@ -1,4 +1,5 @@
 import MailchimpSubscribe from "react-mailchimp-subscribe";
+import { Newsletter } from "./Newsletter";
 
 //This is the basic form and the Newsletter will be the wrapper around this 
 export const MailchimpForm = () => {
@@ -14,8 +15,7 @@ export const MailchimpForm = () => {
             <MailchimpSubscribe
                 url={postUrl}
                 render={({subscribe, status, message})=> (
-                    <>
-                    </>
+                    <Newsletter status={status} message={message} onValidated={formData => subscribe(formData)}/>
                 )}
             />
         </>
