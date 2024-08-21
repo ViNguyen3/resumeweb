@@ -4,9 +4,13 @@ import projImg2 from '../assets/images/project-img2.png';
 import projImg3 from '../assets/images/project-img3.png';
 import brownlabubu from '../assets/images/brown-labubu.jpg';
 import redlabubu from '../assets/images/redlabubu.jpg';
-import whitelabubu from '../assets/images/white-labubu.jpg';
+import whitelabubu from '../assets/images/edit-white-labubu.jpg';
+import askewlabubu from '../assets/images/askwelabubu.jpg';
+import greenlabubu from '../assets/images/green-grass-labubu.jpg';
 import { ProjectCard } from "./ProjectCard";
 import corlorSharp2 from  '../assets/images/color-sharp2.png';
+import TrackVisibility from 'react-on-screen';
+import 'animate.css';
 
 export const Projects = () => {
 
@@ -24,7 +28,7 @@ export const Projects = () => {
         {
           title: "Business Startup",
           description: "Design & Development",
-          imgUrl: projImg3,
+          imgUrl: askewlabubu,
         },
         {
           title: "Business Startup",
@@ -34,7 +38,7 @@ export const Projects = () => {
         {
           title: "Business Startup",
           description: "Design & Development",
-          imgUrl: projImg2,
+          imgUrl: greenlabubu,
         },
         {
           title: "Business Startup",
@@ -48,8 +52,14 @@ export const Projects = () => {
             <Container>
                 <Row>
                     <Col>
+                    <TrackVisibility>
+                    {({ isVisible }) =>
+                        //if the isVisible is true, then animate_animated animate_fadeIn will work else nothing
+                        <div className={isVisible ? "animate__animated animate__bounce" : ""}>                      
                         <h2>Projects</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>}
+                        </TrackVisibility>
                         <Tab.Container id="projects-tabs" defaultActiveKey="first">
                         <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                         <Nav.Item>
@@ -79,6 +89,18 @@ export const Projects = () => {
                                 </Row>
                             </Tab.Pane>
                             <Tab.Pane eventKey="second">Loren ipsum</Tab.Pane>
+                                <Row>
+                                    {
+                                        projects.map((project,index) => {
+                                            return(
+                                                <ProjectCard 
+                                                    key={index}
+                                                    {...project}
+                                                    /> 
+                                            )
+                                        })
+                                    }
+                                </Row>
                             <Tab.Pane eventKey="third">Loren ipsum</Tab.Pane>
                         </Tab.Content>
                         </Tab.Container>

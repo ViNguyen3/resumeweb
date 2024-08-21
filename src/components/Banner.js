@@ -1,8 +1,9 @@
 import {useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap"; 
 import {App, ArrowRightCircle} from "react-bootstrap-icons"; 
-import headerImg from "../assets/images/gude-header2.png"; 
+import headerImg from "../assets/images/pinklabubu.png"; 
 import TrackVisibility from 'react-on-screen';
+import 'animate.css';
 
 
 export const Banner = () => {
@@ -52,6 +53,7 @@ export const Banner = () => {
                     <Col xs={12} md={6} xl={7}>
                     <TrackVisibility>
                     {({ isVisible }) =>
+                        //if the isVisible is true, then animate_animated animate_fadeIn will work else nothing
                         <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                             <span className="tagline">Welcome to my Resume</span>
                             <h1>{'Hi '}<span className="wrap">{text}</span></h1>     

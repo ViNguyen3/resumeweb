@@ -1,0 +1,4 @@
+Animate.css will add different animated effects to each of your components. 
+Normally, it will be set up to played when the html is loaded, but since this is a SAP, meaning other components 
+wont be visible, hence we want that animation to be kicked of once the users see the content.
+Hence, for this we need to use the "react-on-screen" modules to keep track of what is on screen with the TrackVisibility component
