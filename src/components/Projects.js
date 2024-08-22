@@ -7,6 +7,8 @@ import redlabubu from '../assets/images/redlabubu.jpg';
 import whitelabubu from '../assets/images/edit-white-labubu.jpg';
 import askewlabubu from '../assets/images/askwelabubu.jpg';
 import greenlabubu from '../assets/images/green-grass-labubu.jpg';
+import captainlabubu from '../assets/images/captainlabubu.jpg';
+import standlabubu from '../assets/images/standlabubu.jpg';
 import { ProjectCard } from "./ProjectCard";
 import corlorSharp2 from  '../assets/images/color-sharp2.png';
 import TrackVisibility from 'react-on-screen';
@@ -18,7 +20,7 @@ export const Projects = () => {
         {
           title: "Business Startup",
           description: "Design & Development",
-          imgUrl: projImg1,
+          imgUrl: captainlabubu,
         },
         {
           title: "Business Startup",
@@ -33,7 +35,7 @@ export const Projects = () => {
         {
           title: "Business Startup",
           description: "Design & Development",
-          imgUrl: whitelabubu,
+          imgUrl: standlabubu,
         },
         {
           title: "Business Startup",
@@ -52,13 +54,21 @@ export const Projects = () => {
             <Container>
                 <Row>
                     <Col>
-                    <TrackVisibility>
-                    {({ isVisible }) =>
-                        //if the isVisible is true, then animate_animated animate_fadeIn will work else nothing
-                        <div className={isVisible ? "animate__animated animate__bounce" : ""}>                      
-                        <h2>Projects</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>}
+                        <TrackVisibility>
+                        {({ isVisible }) => {
+                            // //if the isVisible is true, then animate_animated animate_fadeIn will work else nothing
+                            // <div className={isVisible ? "animate__animated animate__bounce" : ""}>                      
+                            //     <h2>Projects</h2>
+                            //     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            // </div>}
+                            console.log("Is visible:", isVisible);
+                            return (
+                              <div className={isVisible ? "animate__animated animate__bounce" : ""}>                      
+                                <h2>Projects</h2>
+                                <p>These are the side projects that I have been working on</p>
+                              </div>
+                            );
+                        }}
                         </TrackVisibility>
                         <Tab.Container id="projects-tabs" defaultActiveKey="first">
                         <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
@@ -78,6 +88,21 @@ export const Projects = () => {
                                     {
                                         projects.map((project,index) => {
                                             return(
+                                                // <p>{project.title}</p> 
+                                                <ProjectCard 
+                                                    key={index}
+                                                    {...project}
+                                                    /> 
+                                            )
+                                        })
+                                    }
+                                </Row>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="second">
+                                <Row>
+                                    {
+                                        projects.map((project,index) => {
+                                            return(
                                                 // <p>{project.title}</p>
                                                 <ProjectCard 
                                                     key={index}
@@ -88,19 +113,6 @@ export const Projects = () => {
                                     }
                                 </Row>
                             </Tab.Pane>
-                            <Tab.Pane eventKey="second">Loren ipsum</Tab.Pane>
-                                <Row>
-                                    {
-                                        projects.map((project,index) => {
-                                            return(
-                                                <ProjectCard 
-                                                    key={index}
-                                                    {...project}
-                                                    /> 
-                                            )
-                                        })
-                                    }
-                                </Row>
                             <Tab.Pane eventKey="third">Loren ipsum</Tab.Pane>
                         </Tab.Content>
                         </Tab.Container>
